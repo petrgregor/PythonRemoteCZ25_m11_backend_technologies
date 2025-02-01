@@ -52,6 +52,89 @@ python manage.py startapp <nazev_aplikace>
   - `tests.py` - testy
   - `views.py` - funcionalita
 
+## Funkcionalita
+
+- [ ] seznam všech filmů 
+  - [ ] seřazení filmů
+    - [ ] hodnocení 
+    - [ ] délky
+    - [ ] stáří
+    - [ ] počet doporučení / počet hodnocení
+    - [ ] počtu pozitivních cen ?
+  - [ ] filtrování filmů
+    - [ ] žánr
+    - [ ] země původu
+    - [ ] podle hodnocení
+    - [ ] podle délky (interval)
+    - [ ] počet doporučení / počet hodnocení (interval)
+    - [ ] počtu pozitivních cen
+  - [ ] streamovací služby (zda se nachází)
+- [ ] detail filmu
+  - [ ] propojení s hercema
+  - [ ] streamovací služby (zda se nachází)
+- [ ] informace o hercích/tvůrcích
+  - [ ] ocenění ? 
+- [ ] komentáře, reviews, hodnocení filmů
+- [ ] watch list (viděl, chci vidět) ?
+- [ ] vyhledávání
+- [ ] vkládání, editace a mazání filmů
+  - [ ] na základě nějakých práv uživatele 
+- [ ] vkládání, editace a mazání herců/tvůrců
+  - [ ] na základě nějakých práv uživatele
+- [ ] admin dashboard
+  - [ ] statistiky (počet uživatelů, filmů, herců)
+- [ ] chat ?
+
+## Databáze
+
+### Modely
+
+- [ ] subgenre
+  - [ ] name
+  - [ ] genre -> ForeignKey(genre)
+- [ ] genre
+  - [ ] name
+  - [ ] movies -> ManyToMany(movie)
+- [ ] stream_service
+  - [ ] name
+  - [ ] movies -> ManyToMany(movie)
+- [x] user
+- [ ] review
+  - [ ] comment
+  - [ ] rating
+  - [ ] recommendation
+  - [ ] user -> ForeignKey(user)
+  - [ ] movie -> ForeignKey(movie)
+- [ ] review_likes
+  - [ ] like 
+  - [ ] review -> ForeignKey(review)
+  - [ ] reviewer -> ForeignKey(user)
+- [ ] country
+  - [ ] name
+  - [ ] movies -> ManyToMany(movie)
+- [ ] creator
+  - [ ] name
+  - [ ] surname
+  - [ ] date_of_birth
+  - [ ] country -> ForeignKey(country)
+  - [ ] acting -> ManyToMany(movie)
+  - [ ] directing -> ManyToMany(movie)
+- [ ] movie
+  - [ ] title_orig
+  - [ ] title_cz
+  - [ ] genres -> ManyToMany(genre)
+  - [ ] countries -> ManyToMany(country)
+  - [ ] length
+  - [ ] description
+  - [ ] released_date
+  - [ ] released_year
+  - [ ] cover_url
+  - [ ] poster_url
+  - [ ] trailer_url
+  - [ ] stream_services -> ManyToMany(stream_services)
+  - [ ] actors -> ManyToMany(creator)
+  - [ ] directors -> ManyToMany(creator)
+
 # Rady pro finální projekt
 - jeden člen týmu vytvoří projekt
   - nainstaluje Django
