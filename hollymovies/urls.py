@@ -17,6 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from viewer.views import hello, home, hello2, hello3, hello4, add, add2, add3
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('', home),
+    path('hello/', hello),
+    path('hello2/<str:word>/', hello2),
+    path('hello3', hello3),
+    path('hello4', hello4),
+    path('add/<int:num1>/<int:num2>/', add),
+    path('add2', add2),
+    path('add3', add3),
 ]
