@@ -92,9 +92,9 @@ python manage.py startapp <nazev_aplikace>
 - [ ] subgenre
   - [ ] name
   - [ ] genre -> ForeignKey(genre)
-- [ ] genre
-  - [ ] name
-  - [ ] movies -> ManyToMany(movie)
+- [x] genre
+  - [x] name
+  - [x] movies -> ManyToMany(movie)
 - [ ] stream_service
   - [ ] name
   - [ ] movies -> ManyToMany(movie)
@@ -109,8 +109,8 @@ python manage.py startapp <nazev_aplikace>
   - [ ] like 
   - [ ] review -> ForeignKey(review)
   - [ ] reviewer -> ForeignKey(user)
-- [ ] country
-  - [ ] name
+- [x] country
+  - [x] name
   - [ ] movies -> ManyToMany(movie)
 - [ ] creator
   - [ ] name
@@ -119,15 +119,15 @@ python manage.py startapp <nazev_aplikace>
   - [ ] country -> ForeignKey(country)
   - [ ] acting -> ManyToMany(movie)
   - [ ] directing -> ManyToMany(movie)
-- [ ] movie
-  - [ ] title_orig
-  - [ ] title_cz
-  - [ ] genres -> ManyToMany(genre)
+- [x] movie
+  - [x] title_orig
+  - [x] title_cz
+  - [x] genres -> ManyToMany(genre)
   - [ ] countries -> ManyToMany(country)
-  - [ ] length
-  - [ ] description
-  - [ ] released_date
-  - [ ] released_year
+  - [x] length (minuty)
+  - [x] description
+  - [x] released_date
+  - [x] released_year
   - [ ] cover_url
   - [ ] poster_url
   - [ ] trailer_url
