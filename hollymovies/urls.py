@@ -22,5 +22,4 @@ from viewer.views import movies
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('movies/', movies),
 ]
