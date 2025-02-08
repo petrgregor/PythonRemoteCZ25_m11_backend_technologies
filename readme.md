@@ -54,7 +54,7 @@ python manage.py startapp <nazev_aplikace>
 
 ## Funkcionalita
 
-- [ ] seznam všech filmů 
+- [ ] seznam všech filmů (feature 1 - movies)
   - [ ] seřazení filmů
     - [ ] hodnocení 
     - [ ] délky
