@@ -69,7 +69,7 @@ python manage.py startapp <nazev_aplikace>
     - [ ] počet doporučení / počet hodnocení (interval)
     - [ ] počtu pozitivních cen
   - [ ] streamovací služby (zda se nachází)
-- [ ] detail filmu
+- [ ] detail filmu (feature 2 - movie)
   - [ ] propojení s hercema
   - [ ] streamovací služby (zda se nachází)
 - [ ] informace o hercích/tvůrcích

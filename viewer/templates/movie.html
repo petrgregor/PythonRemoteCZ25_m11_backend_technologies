@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ movie.title_orig }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ movie }}</h1>
+    Český název: {{ movie.title_cz }} <br>
+    Žánr:
+        {% for genre in movie.genres.all %}
+            {{ genre }}{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            Tento film nemá žádný žánr.
+        {% endfor %}
+{% endblock %}
