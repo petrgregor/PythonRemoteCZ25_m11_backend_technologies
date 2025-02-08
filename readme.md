@@ -194,6 +194,65 @@ Vrací kolekci záznamů, které splňují podmínky:
 
 `Movie.objects.filter(genres__name="Drama")`
 
+`Movie.objects.filter(title_orig__contains="Gump")`
+
+`Movie.objects.filter(genres__name="Drama", released_year=1995)` -- více podmínek, defaultně AND
+
+`Movie.objects.filter(genres__name="Drama").filter(released_year=1995)` -- metody lze řetězit za sebe
+
+`Movie.objects.filter(title_orig__in=["Forrest Gump", "Se7en"])`
+
+`Movie.objects.filter(released_year=1995)`
+
+`Movie.objects.exclude(released_year=1995)`
+
+Test, zda existuje alespoň jeden záznam:
+`Movie.objects.filter(released_year=1995).exists()`
+
+Spočítáme počet vyhovujících záznamů:
+`Movie.objects.filter(released_year=1995).count()`
+
+Agregační funkce:
+`from django.db.models import Avg, Min, Max`
+
+`Movie.objects.aggregate(Avg("length"))`
+
+`Movie.objects.aggregate(Avg("length"), Min("length"), Max("length"))`
+
+Group_by:
+`from django.db.models import Count`
+
+`Movie.objects.values("genres").annotate(count=Count("genres"))`
+
+Uspořádání výsledků:
+`Movie.objects.all()`
+
+`Movie.objects.all().order_by("released_year")` -- uspořádání vzestupně
+
+`Movie.objects.all().order_by("-released_year")` -- uspořádání sestupně
+
+### Create
+`thriller = Genre.objects.create(name="Thriller")`
+
+```python
+scifi = Genre(name="Sci-fi")
+scifi.save()
+```
+
+### Update
+`Movie.objects.filter(id=5).update(description="Nový popis")`
+
+```python
+movie = Movie.objects.get(pk=5)
+movie.description = "Nový popis"
+movie.save()
+```
+
+### Delete
+`Movie.objects.get(id=3).delete()`
+
+`Movie.objects.filter(genres__name="Dokumentární").delete()`
+
 # Rady pro finální projekt
 - jeden člen týmu vytvoří projekt
   - nainstaluje Django
