@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Seznam všech filmů</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam filmů
+{% endblock %}
+
+{% block content %}
     <h1>Filmy</h1>
     <ul>
         {% for movie in movies %}
             <li>{{ movie }}</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
