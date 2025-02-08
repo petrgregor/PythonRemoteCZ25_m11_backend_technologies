@@ -4,7 +4,12 @@
 - vytvoření aplikace
 - návrh funkcionality
 - návrh databáze
+
 2. Úno 2025, Ne 17:00–21:00
+- hello world (views, urls + templates)
+- models (Genre, Country, Movie)
+- admin panel
+
 8. Úno 2025, So 17:00–21:30
 9. Úno 2025, Ne 17:00–21:00
 15. Úno 2025, So 17:00–21:30

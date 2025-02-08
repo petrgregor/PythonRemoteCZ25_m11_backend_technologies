@@ -135,6 +135,65 @@ python manage.py startapp <nazev_aplikace>
   - [ ] actors -> ManyToMany(creator)
   - [ ] directors -> ManyToMany(creator)
 
+### Migrace
+Migrace databáze se skládá ze dvou kroků:
+- `python manage.py makemigrations` - vytvoření migračních skriptů
+- `python manage.py migrate` - spuštění migračních skriptů -> změna schématu databáze
+
+### Administrační panel
+Musíme nejprve vytvořit superuser: `python manage.py createsuperuser`
+
+### DUMP/LOAD databáze
+```bash
+pip install django-dump-load-utf8
+```
+
+DUMP - uložení dat z aplikace `viewer` do json souboru:
+Přidáme `'django_dump_load_utf8',` do seznamu nainstalovaných
+aplikací `INSTALLED_APPS` v souboru `settings.py`.
+
+LOAD - načtení dat z json souboru do databáze:
+```bash
+python manage.py loaddatautf8 .\files\fixtures.json
+```
+
+> [!WARNING]
+>
+> Pozor! Přepíšou se původní hodnoty v databázi.
+
+### Queries - práce s databází
+#### .all()
+Vrací kolekci všech nalezených záznamů z tabulky:
+`Movie.objects.all()`
+
+#### .get()
+Vrátí jeden nalezený záznam (první, který splňuje podmínky):
+`Movie.objects.get(pk=1)`
+
+#### .filter()
+Vrací kolekci záznamů, které splňují podmínky:
+`Movie.objects.filter(pk=1)`
+
+`Movie.objects.filter(title_orig="The Green Mile")`
+
+`Movie.objects.filter(released_year=1995)`
+
+`Movie.objects.filter(released_year__gt=1995)` -- `__gt` => "větší než" (greater then)
+
+`Movie.objects.filter(released_year__gte=1995)` -- `__gte` => "větší rovno" (greater then equal)
+
+`Movie.objects.filter(released_year__lt=1995)` -- `__lt` => "menší než" (less then)
+
+`Movie.objects.filter(released_year__lte=1995)` -- `__lte` => "menší rovno" (less then equal)
+
+`drama = Genre.objects.get(name="Drama")`
+
+`Movie.objects.filter(genres=drama)`
+
+`Movie.objects.filter(genres=Genre.objects.get(name="Drama"))`
+
+`Movie.objects.filter(genres__name="Drama")`
+
 # Rady pro finální projekt
 - jeden člen týmu vytvoří projekt
   - nainstaluje Django
