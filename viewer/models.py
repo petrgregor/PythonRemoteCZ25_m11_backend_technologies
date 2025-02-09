@@ -44,6 +44,10 @@ class Movie(Model):
             return datetime.strftime(self.released_date, "%d. %m. %Y")
         return None
 
+    def length_format(self):
+        # TODO: převést délku filmu z minut na formít h:mm
+        # 142 -> 2:22
+        pass
 
 
 class Country(Model):
