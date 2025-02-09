@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Seznam žánrů
+{% endblock %}
+
+{% block content %}
+    <h1>Žánry</h1>
+    <ul>
+        {% for genre in genres %}
+            <li>{{ genre }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

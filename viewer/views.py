@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from viewer.models import Movie
+from viewer.models import Movie, Genre
 
 
 def home(request):
@@ -21,3 +21,9 @@ def movie(request, pk):
         context = {'movie': movie_}
         return render(request, "movie.html", context)
     return redirect("home")
+
+
+def genres(request):
+    return render(request,
+                  "genres.html",
+                  {'genres': Genre.objects.all()})
