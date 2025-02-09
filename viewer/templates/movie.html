@@ -10,7 +10,7 @@
     <h3>Žánr:</h3>
     <ul class="pl-3 list-unstyled">
         {% for genre in movie.genres.all %}
-            <li>{{ genre }}</li>
+            <li><a href="{% url 'genre' genre.id %}">{{ genre }}</a></li>
         {% empty %}
             Tento film nemá žádný žánr.
         {% endfor %}

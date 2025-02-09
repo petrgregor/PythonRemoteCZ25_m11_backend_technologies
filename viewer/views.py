@@ -27,3 +27,11 @@ def genres(request):
     return render(request,
                   "genres.html",
                   {'genres': Genre.objects.all()})
+
+
+def genre(request, pk):
+    if Genre.objects.filter(id=pk).exists():
+        return render(request,
+                      "genre.html",
+                      {'genre': Genre.objects.get(id=pk)})
+    return redirect('genres')
