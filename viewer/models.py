@@ -1,7 +1,7 @@
-from datetime import datetime
+from datetime import datetime, date
 
 from django.db.models import Model, CharField, ManyToManyField, IntegerField, \
-    TextField, DateField, DateTimeField
+    TextField, DateField, DateTimeField, ForeignKey, SET_NULL
 
 
 class Genre(Model):
@@ -18,11 +18,37 @@ class Genre(Model):
         return f"{self.name}"
 
 
+class Creator(Model):
+    name = CharField(max_length=32, null=True, blank=True)
+    surname = CharField(max_length=32, null=True, blank=True)
+    alias = CharField(max_length=32, null=True, blank=True)
+    date_of_birth = DateField(null=True, blank=True)
+    date_of_death = DateField(null=True, blank=True)
+    country = ForeignKey("Country", null=True, blank=True, on_delete=SET_NULL, related_name='creators')
+    created = DateTimeField(auto_now_add=True)
+    updated = DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['surname', 'name']
+
+    def __repr__(self):
+        return f"Creator(name={self.name}, surname={self.surname})"
+
+    def __str__(self):
+        return f"{self.name} {self.surname} ({self.date_of_birth.year})"
+
+    def age(self):
+        # TODO: spočítat věk
+        pass
+
+
 class Movie(Model):
     title_orig = CharField(max_length=64, null=False, blank=False)
     title_cz = CharField(max_length=64, null=True, blank=True)
     genres = ManyToManyField(Genre, blank=True, related_name='movies')
     countries = ManyToManyField("Country", blank=True, related_name='movies')
+    directors = ManyToManyField(Creator, blank=True, related_name="directing")
+    actors = ManyToManyField(Creator, blank=True, related_name="acting")
     length = IntegerField(null=True, blank=True)
     description = TextField(null=True, blank=True)
     released_date = DateField(null=True, blank=True)
