@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from viewer.views import movies, home, movie, genres, genre
+from viewer.views import movies, home, movie, genres, genre, GenresView, \
+    GenresTemplateView, GenresListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,9 @@ urlpatterns = [
 
     path('movies/', movies, name='movies'),
     path('movie/<int:pk>/', movie, name='movie'),
-    path('genres/', genres, name='genres'),
+    #path('genres/', genres, name='genres'),  # view pomocí funkce genres
+    #path('genres/', GenresView.as_view(), name='genres'),  # view pomocí třídy GenresView
+    #path('genres/', GenresTemplateView.as_view(), name='genres'),  # view pomocí třídy GenresTemplateView
+    path('genres/', GenresListView.as_view(), name='genres'),  # view pomocí třídy GenresListView
     path('genre/<int:pk>/', genre, name='genre'),
 ]
