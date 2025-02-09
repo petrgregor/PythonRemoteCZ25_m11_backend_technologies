@@ -72,7 +72,7 @@ python manage.py startapp <nazev_aplikace>
 - [x] detail filmu (feature 2 - movie)
   - [ ] propojení s hercema
   - [ ] streamovací služby (zda se nachází)
-- [ ] informace o hercích/tvůrcích (feature 4)
+- [x] informace o hercích/tvůrcích (feature 4)
   - [ ] ocenění ? 
 - [ ] komentáře, reviews, hodnocení filmů
 - [ ] watch list (viděl, chci vidět) ?
