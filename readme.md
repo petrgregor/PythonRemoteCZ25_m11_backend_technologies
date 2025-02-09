@@ -70,7 +70,7 @@ python manage.py startapp <nazev_aplikace>
     - [ ] počtu pozitivních cen
   - [ ] streamovací služby (zda se nachází)
 - [x] detail filmu (feature 2 - movie)
-  - [ ] propojení s hercema
+  - [x] propojení s hercema (feture 4)
   - [ ] streamovací služby (zda se nachází)
 - [x] informace o hercích/tvůrcích (feature 4)
   - [ ] ocenění ? 
@@ -111,19 +111,22 @@ python manage.py startapp <nazev_aplikace>
   - [ ] reviewer -> ForeignKey(user)
 - [x] country
   - [x] name
-  - [ ] movies -> ManyToMany(movie)
-- [ ] creator
-  - [ ] name
-  - [ ] surname
-  - [ ] date_of_birth
-  - [ ] country -> ForeignKey(country)
-  - [ ] acting -> ManyToMany(movie)
-  - [ ] directing -> ManyToMany(movie)
+  - [x] movies -> ManyToMany(movie)
+- [x] creator
+  - [x] name
+  - [x] surname
+  - [x] alias
+  - [x] date_of_birth
+  - [x] date_of_death
+  - [x] country -> ForeignKey(country)
+  - [x] acting -> ManyToMany(movie)
+  - [x] directing -> ManyToMany(movie)
+  - [ ] biography
 - [x] movie
   - [x] title_orig
   - [x] title_cz
   - [x] genres -> ManyToMany(genre)
-  - [ ] countries -> ManyToMany(country)
+  - [x] countries -> ManyToMany(country)
   - [x] length (minuty)
   - [x] description
   - [x] released_date
@@ -132,8 +135,8 @@ python manage.py startapp <nazev_aplikace>
   - [ ] poster_url
   - [ ] trailer_url
   - [ ] stream_services -> ManyToMany(stream_services)
-  - [ ] actors -> ManyToMany(creator)
-  - [ ] directors -> ManyToMany(creator)
+  - [x] actors -> ManyToMany(creator)
+  - [x] directors -> ManyToMany(creator)
 
 ### Migrace
 Migrace databáze se skládá ze dvou kroků:
