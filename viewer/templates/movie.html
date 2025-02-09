@@ -6,11 +6,40 @@
 
 {% block content %}
     <h1>{{ movie }}</h1>
-    Český název: {{ movie.title_cz }} <br>
-    Žánr:
+    <p>Český název: {{ movie.title_cz }} </p>
+    <h3>Žánr:</h3>
+    <ul class="pl-3 list-unstyled">
         {% for genre in movie.genres.all %}
-            {{ genre }}{% if not forloop.last %}, {% endif %}
+            <li>{{ genre }}</li>
         {% empty %}
             Tento film nemá žádný žánr.
         {% endfor %}
+    </ul>
+    <h3>Země původu:</h3>
+     <ul class="pl-3 list-unstyled">
+        {% for country in movie.countries.all %}
+            <li>{{ country }}</li>
+        {% empty %}
+            Tento film nemá žádnou zemi původu.
+        {% endfor %}
+    </ul>
+    <h3>Délka filmu:</h3>
+    <p class="pl-3">{{ movie.length }} minut</p>
+    <h3>Popis:</h3>
+    <p class="pl-3">{{ movie.description }}</p>
+    {% if movie.released_date %}
+        <h3>Datum vydání:</h3>
+        <p class="mb-5 pl-3">{{ movie.released_date_cz }}</p>
+    {% else %}
+        {% if movie.released_year %}
+            <h3>Rok vydání:</h3>
+            <p class="mb-5 pl-3">{{ movie.released_year }}</p>
+        {% endif %}
+    {% endif %}
+    <h6 class="text-muted">
+    <small class="text-dark">Záznam vytvořen: <b>{{ movie.created }}</b></small>
+    </h6>
+    <h6 class="text-muted">
+    <small class="text-dark">Poslední update: <b>{{ movie.updated }}</b></small>
+    </h6>
 {% endblock %}
