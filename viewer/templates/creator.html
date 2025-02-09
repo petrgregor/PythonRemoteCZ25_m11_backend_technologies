@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ creator }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ creator }}</h1>
+    Datum narození: {{ creator.date_of_birth }}
+    {% if creator.date_of_death %}
+        <br>
+        Datum úmrtí: {{ creator.date_of_death }}
+    {% endif %}
+    <br>
+    Národnost: {{ creator.country }}
+
+    <br>
+    {% if creator.acting.count %}
+        Herec:
+        <ul>
+            {% for movie in creator.acting.all %}
+                <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <br>
+    {% if creator.directing.count %}
+        Režisér:
+        <ul>
+            {% for movie in creator.directing.all %}
+                <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

@@ -25,6 +25,18 @@
     </ul>
     <h3>Délka filmu:</h3>
     <p class="pl-3">{{ movie.length }} minut</p>
+    <h3>Režie:</h3>
+    <ul class="pl-3 list-unstyled">
+    {% for director in movie.directors.all %}
+        <li><a href="{% url 'creator' director.id %}">{{ director }}</a> </li>
+    {% endfor %}
+    </ul>
+    <h3>Herci:</h3>
+    <ul class="pl-3 list-unstyled">
+    {% for actor in movie.actors.all %}
+        <li><a href="{% url 'creator' actor.id %}">{{ actor }}</a> </li>
+    {% endfor %}
+    </ul>
     <h3>Popis:</h3>
     <p class="pl-3">{{ movie.description }}</p>
     {% if movie.released_date %}

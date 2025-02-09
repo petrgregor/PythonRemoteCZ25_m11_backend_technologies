@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView
 
-from viewer.models import Movie, Genre
+from viewer.models import Movie, Genre, Creator
 
 
 def home(request):
@@ -57,3 +57,16 @@ def genre(request, pk):
                       "genre.html",
                       {'genre': Genre.objects.get(id=pk)})
     return redirect('genres')
+
+
+class CreatorsListView(ListView):
+    template_name = "creators.html"
+    model = Creator
+    context_object_name = 'creators'
+
+
+class CreatorView(View):
+    def get(self, request, pk):
+        if Creator.objects.filter(id=pk).exists():
+            return render(request, "creator.html", {"creator": Creator.objects.get(id=pk)})
+        return redirect('creators')

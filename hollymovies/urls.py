@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from viewer.views import movies, home, movie, genres, genre, GenresView, \
-    GenresTemplateView, GenresListView
+    GenresTemplateView, GenresListView, CreatorsListView, CreatorView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +32,6 @@ urlpatterns = [
     #path('genres/', GenresTemplateView.as_view(), name='genres'),  # view pomocí třídy GenresTemplateView
     path('genres/', GenresListView.as_view(), name='genres'),  # view pomocí třídy GenresListView
     path('genre/<int:pk>/', genre, name='genre'),
+    path('creators/', CreatorsListView.as_view(), name='creators'),
+    path('creator/<int:pk>/', CreatorView.as_view(), name='creator'),
 ]
