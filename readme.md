@@ -61,9 +61,9 @@ python manage.py startapp <nazev_aplikace>
     - [ ] stáří
     - [ ] počet doporučení / počet hodnocení
     - [ ] počtu pozitivních cen ?
-  - [ ] filtrování filmů
+  - [ ] filtrování filmů (feature 3)
     - [x] žánr (feature 3.1)
-    - [ ] země původu (Domácí úkol)
+    - [x] země původu (feature 3.2)
     - [ ] podle hodnocení
     - [ ] podle délky (interval)
     - [ ] počet doporučení / počet hodnocení (interval)
