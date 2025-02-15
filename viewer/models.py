@@ -38,8 +38,10 @@ class Creator(Model):
         return f"{self.name} {self.surname} ({self.date_of_birth.year})"
 
     def age(self):
-        # TODO: spočítat věk
-        pass
+        if self.date_of_birth:
+            end_date = self.date_of_death or date.today()
+            return end_date.year - self.date_of_birth.year - ((end_date.month, end_date.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return None
 
 
 class Movie(Model):

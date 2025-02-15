@@ -11,6 +11,9 @@
         <br>
         Datum úmrtí: {{ creator.date_of_death }}
     {% endif %}
+    {% if creator.age %}
+        ({{ creator.age }} let)
+    {% endif %}
     <br>
     Národnost: {{ creator.country }}
 

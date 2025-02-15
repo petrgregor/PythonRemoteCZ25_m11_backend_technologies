@@ -73,6 +73,7 @@ python manage.py startapp <nazev_aplikace>
   - [x] propojení s hercema (feture 4)
   - [ ] streamovací služby (zda se nachází)
 - [x] informace o hercích/tvůrcích (feature 4)
+  - [ ] věk tvůrce (age) (feature 4.1) 
   - [ ] ocenění ? 
 - [ ] komentáře, reviews, hodnocení filmů
 - [ ] watch list (viděl, chci vidět) ?
