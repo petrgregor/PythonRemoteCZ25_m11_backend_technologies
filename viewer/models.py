@@ -73,9 +73,16 @@ class Movie(Model):
         return None
 
     def length_format(self):
-        # TODO: převést délku filmu z minut na formít h:mm
+        # převést délku filmu z minut na formít h:mm
         # 142 -> 2:22
-        pass
+        # 122 -> 2:02
+        if self.length:
+            hours = self.length // 60
+            minutes = self.length % 60
+            if minutes < 10:
+                minutes = f"0{minutes}"
+            return f"{hours}:{minutes}"
+        return None
 
 
 class Country(Model):

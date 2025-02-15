@@ -70,10 +70,11 @@ python manage.py startapp <nazev_aplikace>
     - [ ] počtu pozitivních cen
   - [ ] streamovací služby (zda se nachází)
 - [x] detail filmu (feature 2 - movie)
-  - [x] propojení s hercema (feture 4)
+  - [x] propojení s hercema (feature 4)
+  - [x] délka filmu ve formátu hh:mm (length_format) (feature 2.1)
   - [ ] streamovací služby (zda se nachází)
 - [x] informace o hercích/tvůrcích (feature 4)
-  - [ ] věk tvůrce (age) (feature 4.1) 
+  - [x] věk tvůrce (age) (feature 4.1) 
   - [ ] ocenění ? 
 - [ ] komentáře, reviews, hodnocení filmů
 - [ ] watch list (viděl, chci vidět) ?

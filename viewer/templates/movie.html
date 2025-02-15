@@ -23,8 +23,10 @@
             Tento film nemá žádnou zemi původu.
         {% endfor %}
     </ul>
-    <h3>Délka filmu:</h3>
-    <p class="pl-3">{{ movie.length }} minut</p>
+    {% if movie.length %}
+        <h3>Délka filmu:</h3>
+        <p class="pl-3">{{ movie.length_format }} ({{ movie.length }} minut)</p>
+    {% endif %}
     <h3>Režie:</h3>
     <ul class="pl-3 list-unstyled">
     {% for director in movie.directors.all %}
