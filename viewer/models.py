@@ -25,6 +25,7 @@ class Creator(Model):
     date_of_birth = DateField(null=True, blank=True)
     date_of_death = DateField(null=True, blank=True)
     country = ForeignKey("Country", null=True, blank=True, on_delete=SET_NULL, related_name='creators')
+    biography = TextField(null=True, blank=True)
     created = DateTimeField(auto_now_add=True)
     updated = DateTimeField(auto_now=True)
 
