@@ -11,10 +11,19 @@
 - admin panel
 
 8. Úno 2025, So 17:00–21:30
+- movies view - seznam filmů
+- movie view - detail filmu
+
 9. Úno 2025, Ne 17:00–21:00
-15. Úno 2025, So 17:00–21:30
-16. Úno 2025, Ne 17:00–21:00
-28. Úno 2025, Pá 17:00–21:00
-2. Bře 2025, Ne 17:00–21:00
-8. Bře 2025, So 17:00–21:30
-9. Bře 2025, Ne 17:00–21:00
+- filtrování filmů dle žánru
+- CBV
+- models (Creator)
+- creators list view
+- creator view
+
+15. Úno 2025, So 17:00–21:30 Formuláře
+16. Úno 2025, Ne 17:00–21:00 Create, Update, Delete + clean metody
+28. Úno 2025, Pá 17:00–21:00 Pokročilé šablony (filtry)
+2. Bře 2025, Ne 17:00–21:00 Authentication + Authorization
+8. Bře 2025, So 17:00–21:30 Accounts Profile + Administration panel
+9. Bře 2025, Ne 17:00–21:00 Testování + API
