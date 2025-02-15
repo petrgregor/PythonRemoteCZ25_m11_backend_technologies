@@ -24,9 +24,11 @@
 15. Úno 2025, So 17:00–21:30
 - DetailView
 - opakování (domácí úlohy)
-- Formuláře
+- Formuláře + clean metody
+- FormView + CreateView + UpdateView + DeleteView
+- Creator (Create, Update, Delete)
 
-16. Úno 2025, Ne 17:00–21:00 Create, Update, Delete + clean metody
+16. Úno 2025, Ne 17:00–21:00
 28. Úno 2025, Pá 17:00–21:00 Pokročilé šablony (filtry)
 2. Bře 2025, Ne 17:00–21:00 Authentication + Authorization
 8. Bře 2025, So 17:00–21:30 Accounts Profile + Administration panel

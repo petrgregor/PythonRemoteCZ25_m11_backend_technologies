@@ -82,7 +82,7 @@ python manage.py startapp <nazev_aplikace>
 - [ ] vkládání, editace a mazání filmů
   - [ ] na základě nějakých práv uživatele 
 - [ ] vkládání, editace a mazání herců/tvůrců (feature 5)
-  - [ ] formulář (feature 5.1) 
+  - [x] formulář (feature 5.1) 
   - [ ] na základě nějakých práv uživatele
 - [ ] admin dashboard
   - [ ] statistiky (počet uživatelů, filmů, herců)

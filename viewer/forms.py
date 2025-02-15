@@ -9,6 +9,7 @@ from hollymovies.settings import DEBUG
 from viewer.models import Country, Creator
 
 
+"""
 class CreatorForm(Form):
     name = CharField(max_length=32, required=False)
     surname = CharField(max_length=32, required=False)
@@ -17,6 +18,7 @@ class CreatorForm(Form):
     date_of_death = DateField(required=False)
     country = ModelChoiceField(queryset=Country.objects, required=False)
     biography = CharField(widget=Textarea, required=False)
+"""
 
 
 class CreatorModelForm(ModelForm):
