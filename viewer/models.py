@@ -33,10 +33,19 @@ class Creator(Model):
         ordering = ['surname', 'name']
 
     def __repr__(self):
-        return f"Creator(name={self.name}, surname={self.surname})"
+        return f"Creator(name={self.name}, surname={self.surname}, alias={self.alias})"
 
     def __str__(self):
-        return f"{self.name} {self.surname} ({self.date_of_birth.year})"
+        if self.date_of_birth:
+            return f"{self.name} {self.surname} ({self.date_of_birth.year})"
+        result = ""
+        if self.name:
+            result += self.name
+        if self.surname:
+            result += " " + self.surname
+        if self.alias:
+            result += " " + self.alias
+        return result
 
     def age(self):
         if self.date_of_birth:

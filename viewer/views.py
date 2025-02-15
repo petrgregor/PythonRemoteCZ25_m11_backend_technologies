@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView
 
-from viewer.forms import CreatorForm
+from viewer.forms import CreatorForm, CreatorModelForm
 from viewer.models import Movie, Genre, Creator, Country
 
 
@@ -82,7 +82,7 @@ class CreatorDetailView(DetailView):
 
 class CreatorFormView(FormView):
     template_name = "form.html"
-    form_class = CreatorForm
+    form_class = CreatorModelForm
     success_url = reverse_lazy('creators')
 
     def form_valid(self, form):
