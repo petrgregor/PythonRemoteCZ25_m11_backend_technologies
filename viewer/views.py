@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from viewer.models import Movie, Genre, Creator
 
@@ -70,3 +70,9 @@ class CreatorView(View):
         if Creator.objects.filter(id=pk).exists():
             return render(request, "creator.html", {"creator": Creator.objects.get(id=pk)})
         return redirect('creators')
+
+
+class CreatorDetailView(DetailView):
+    model = Creator
+    template_name = "creator.html"
+    context_object_name = "creator"
