@@ -109,8 +109,8 @@ class CreatorModelForm(ModelForm):
         if not initial_surname and not initial_alias:
             raise ValidationError("Je nutné zadat příjmení nebo umělecké jméno (nebo oboje).")
 
-        initial_date_of_birth = cleaned_data['date_of_birth']
-        initial_date_of_death = cleaned_data['date_of_death']
+        initial_date_of_birth = cleaned_data.get('date_of_birth')
+        initial_date_of_death = cleaned_data.get('date_of_death')
         if (initial_date_of_birth
                 and initial_date_of_death
                 and initial_date_of_death <= initial_date_of_birth):
