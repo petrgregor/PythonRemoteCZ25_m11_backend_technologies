@@ -5,7 +5,8 @@ from django.views.generic import TemplateView, ListView, DetailView, FormView, \
     CreateView, UpdateView, DeleteView
 
 from hollymovies.settings import DEBUG
-from viewer.forms import CreatorModelForm, GenreModelForm, CountryModelForm
+from viewer.forms import CreatorModelForm, GenreModelForm, CountryModelForm, \
+    MovieModelForm
 from viewer.models import Movie, Genre, Creator, Country
 
 
@@ -27,6 +28,35 @@ def movie(request, pk):
         context = {'movie': movie_}
         return render(request, "movie.html", context)
     return redirect("home")
+
+
+class MovieCreateView(CreateView):
+    template_name = "form.html"
+    form_class = MovieModelForm
+    success_url = reverse_lazy("movies")
+
+    def form_invalid(self, form):
+        if DEBUG:
+            print("Form 'MovieModelForm' is invalid.")
+        return super().form_invalid(form)
+
+
+class MovieUpdateView(UpdateView):
+    template_name = "form.html"
+    form_class = MovieModelForm
+    success_url = reverse_lazy("movies")
+    model = Movie
+
+    def form_invalid(self, form):
+        if DEBUG:
+            print("Form 'MovieModelForm' is invalid.")
+        return super().form_invalid(form)
+
+
+class MovieDeleteView(DeleteView):
+    template_name = "confirm_delete.html"
+    model = Movie
+    success_url = reverse_lazy('movies')
 
 
 def genres(request):

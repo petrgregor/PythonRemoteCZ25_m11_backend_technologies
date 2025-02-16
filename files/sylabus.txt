@@ -29,6 +29,11 @@
 - Creator (Create, Update, Delete)
 
 16. Úno 2025, Ne 17:00–21:00
+- opakování
+  - Genre: CreateView + UpdateView + DeleteView
+  - Country: CreateView + UpdateView + DeleteView
+  - Movie: CreateView + UpdateView + DeleteView
+
 28. Úno 2025, Pá 17:00–21:00 Pokročilé šablony (filtry)
 2. Bře 2025, Ne 17:00–21:00 Authentication + Authorization
 8. Bře 2025, So 17:00–21:30 Accounts Profile + Administration panel

@@ -6,7 +6,7 @@ from django.forms import Form, CharField, DateField, ModelChoiceField, Textarea,
     ModelForm, NumberInput
 
 from hollymovies.settings import DEBUG
-from viewer.models import Country, Creator, Genre
+from viewer.models import Country, Creator, Genre, Movie
 
 """
 class CreatorForm(Form):
@@ -146,4 +146,56 @@ class CountryModelForm(ModelForm):
         return initial.capitalize()
 
 
+class MovieModelForm(ModelForm):
+    class Meta:
+        model = Movie
+        fields = '__all__'
 
+        labels = {
+            'title_orig': 'Originální název',
+            'title_cz': 'Český název',
+            'genres': 'Žánry',
+            'countries': 'Země',
+            'directors': 'Režie',
+            'actors': 'Herecké obsazení',
+            'length': 'Délka',
+            'description': 'Popis',
+            'released_date': 'Datum premiéry',
+            'released_year': 'Rok premiéry'
+        }
+        help_texts = {
+            'length': 'Délka filmu v minutách.',
+            'description': 'Popis filmu, stručný obsah nebo jiné detaily.'
+        }
+        error_messages = {
+            'title_orig': {
+                'required': 'Tento údaj je povinný.',
+            }
+        }
+
+    released_date = DateField(required=False,
+                              widget=NumberInput(attrs={'type': 'date'}),
+                              label="Datum premiéry")
+
+    def clean_title_orig(self):
+        initial = self.cleaned_data['title_orig']
+        return initial.capitalize()
+
+    def clean_title_cz(self):
+        initial = self.cleaned_data['title_cz']
+        if initial:
+            return initial.capitalize()
+        return initial
+
+    def clean_length(self):
+        initial = self.cleaned_data['length']
+        if initial and initial <= 0:
+            raise ValidationError("Délka filmu musí být kladné číslo.")
+        return initial
+
+    def clean(self):
+        cleaned_data = super().clean()
+        released_date = cleaned_data.get('released_date')
+        if released_date:
+            cleaned_data['released_year'] = released_date.year
+        return cleaned_data
