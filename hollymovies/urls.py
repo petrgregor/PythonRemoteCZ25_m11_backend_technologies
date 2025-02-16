@@ -26,11 +26,16 @@ urlpatterns = [
 
     path('movies/', movies, name='movies'),
     path('movie/<int:pk>/', movie, name='movie'),
+
     #path('genres/', genres, name='genres'),  # view pomocí funkce genres
     #path('genres/', GenresView.as_view(), name='genres'),  # view pomocí třídy GenresView
     #path('genres/', GenresTemplateView.as_view(), name='genres'),  # view pomocí třídy GenresTemplateView
     path('genres/', GenresListView.as_view(), name='genres'),  # view pomocí třídy GenresListView
     path('genre/<int:pk>/', genre, name='genre'),
+    path('genre/create/', GenreCreateView.as_view(), name='genre_create'),
+    path('genre/update/<int:pk>/', GenreUpdateView.as_view(), name='genre_update'),
+    path('genre/delete/<int:pk>/', GenreDeleteView.as_view(), name='genre_delete'),
+
     path('creators/', CreatorsListView.as_view(), name='creators'),
     #path('creator/<int:pk>/', CreatorView.as_view(), name='creator'),
     path('creator/<int:pk>/', CreatorDetailView.as_view(), name='creator'),
@@ -38,6 +43,11 @@ urlpatterns = [
     path('creator/update/<int:pk>/', CreatorUpdateView.as_view(), name='creator_update'),
     path('creator/delete/<int:pk>/', CreatorDeleteView.as_view(), name='creator_delete'),
     #path('creatorform/', CreatorFormView.as_view(), name='creatorform'),
+
     path('countries/', CountriesListView.as_view(), name='countries'),
     path('country/<int:pk>/', CountryDetailView.as_view(), name='country'),
+    path('country/create/', CountryCreateView.as_view(), name='country_create'),
+    path('country/update/<int:pk>/', CountryUpdateView.as_view(), name='country_update'),
+    path('country/delete/<int:pk>/', CountryDeleteView.as_view(), name='country_delete'),
+
 ]

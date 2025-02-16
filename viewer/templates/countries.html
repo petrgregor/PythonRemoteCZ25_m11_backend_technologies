@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1>Země</h1>
+    <a href="{% url 'country_create' %}" class="btn btn-primary">Přidat</a>
     <ul>
         {% for country in countries %}
             {% if country.movies.count %}

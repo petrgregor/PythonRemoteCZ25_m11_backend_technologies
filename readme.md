@@ -79,7 +79,7 @@ python manage.py startapp <nazev_aplikace>
 - [ ] komentáře, reviews, hodnocení filmů
 - [ ] watch list (viděl, chci vidět) ?
 - [ ] vyhledávání
-- [ ] vkládání, editace a mazání filmů
+- [ ] vkládání, editace a mazání filmů (feature 6)
   - [ ] na základě nějakých práv uživatele 
 - [ ] vkládání, editace a mazání herců/tvůrců (feature 5)
   - [x] formulář (feature 5.1) 
